@@ -1,2 +1,0 @@
-F:\GameDevelopment\Unity\Projects\Shifting2D\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
-F:\GameDevelopment\Unity\Projects\Shifting2D\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
