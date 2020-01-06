@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     public ControlsManager controlsManager;
 
+    public InputQueueUI inputQueue;
+
     public float timeBetweenSwitch;
     public float speed;
 
@@ -30,8 +32,7 @@ public class PlayerController : MonoBehaviour
     public float bombSpeed;
     public int bombDamage;
 
-    private
-
+    
     private KeyMap[] km = new KeyMap[4];
     private KeyCode lastPress = KeyCode.None;
 
@@ -153,6 +154,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.B))
         {
+            inputQueue.AddInput('b');
             lastPress = KeyCode.B;
             return true;
         }
