@@ -13,39 +13,43 @@ public class LinearPatrol : MonoBehaviour
     public PatrolDirection patrolDirection;
 
     //public float timeBetweenMoves;
-
-    public bool patrolInifinitely; 
-    public int patrolDistance;
-
+    
     public bool positiveMoveDirection;
 
+    public GameObject directionArrow;
+
     private bool currPositiveMoveDirection;
-    private int currSteps;
     private Enemy enemy;
-    private int stepCount;
 
     public void Start()
     {
         enemy = GetComponent<Enemy>();
         currPositiveMoveDirection = positiveMoveDirection;
-    }
-    
 
-    public void Move()
-    {
-        if (stepCount == enemy.buttonPressesPerMove)
-        {
-            if (patrolDirection == PatrolDirection.HORIZONTAL)
-                MoveHorizontal();
+        if (patrolDirection == PatrolDirection.HORIZONTAL) { 
+            if (currPositiveMoveDirection)
+                directionArrow.transform.eulerAngles = new Vector3(0, 0, 270);
             else
-                MoveVertical();
-
-            stepCount = 0;
+                directionArrow.transform.eulerAngles = new Vector3(0, 0, 90);
         }
         else
         {
-            stepCount++;
-        }        
+            if (currPositiveMoveDirection)
+                directionArrow.transform.eulerAngles = new Vector3(0, 0, 0);
+            else
+                directionArrow.transform.eulerAngles = new Vector3(0, 0, 180);
+        }
+    }
+
+    public void Move()
+    {
+      
+        if (patrolDirection == PatrolDirection.HORIZONTAL)
+            MoveHorizontal();
+        else
+            MoveVertical();
+
+         
     }
 
 
@@ -60,20 +64,22 @@ public class LinearPatrol : MonoBehaviour
 
         RaycastHit2D ray = Physics2D.Raycast(transform.position, rayDir, 1.0f);
 
-        if (ray.collider != null)
+        if (ray.collider != null && ray.collider.tag != "Button")
         {
             currPositiveMoveDirection = !currPositiveMoveDirection;
         }
-        else if(!patrolInifinitely && currSteps < 0)
-        {
-            currPositiveMoveDirection = !currPositiveMoveDirection;
-            currSteps = patrolDistance;
-        }
+      
 
         if (currPositiveMoveDirection)
+        {
             transform.Translate(new Vector3(1, 0, 0));
+            directionArrow.transform.eulerAngles = new Vector3(0, 0, 270); 
+        }
         else
+        {
             transform.Translate(new Vector3(-1, 0, 0));
+            directionArrow.transform.eulerAngles = new Vector3(0, 0, 90);
+        }
     }
 
     private void MoveVertical()
@@ -87,20 +93,20 @@ public class LinearPatrol : MonoBehaviour
 
         RaycastHit2D ray = Physics2D.Raycast(transform.position, rayDir, 1.0f);
 
-        if (ray.collider != null)
+        if (ray.collider != null && ray.collider.tag != "Button")
         {
             currPositiveMoveDirection = !currPositiveMoveDirection;
-        }
-        else if (!patrolInifinitely && currSteps < 0)
-        {
-            currPositiveMoveDirection = !currPositiveMoveDirection;
-            currSteps = patrolDistance;
-        }
+        }       
 
         if (currPositiveMoveDirection)
+        {
             transform.Translate(new Vector3(0, 1, 0));
+            directionArrow.transform.eulerAngles = new Vector3(0, 0, 0);
+        }
         else
+        {
             transform.Translate(new Vector3(0, -1, 0));
+            directionArrow.transform.eulerAngles = new Vector3(0, 0, 270);
+        }
     }
-
 }

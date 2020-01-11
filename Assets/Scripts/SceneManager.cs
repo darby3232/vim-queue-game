@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class SceneManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    private List<Bomb> bombs = new List<Bomb>();
 
     public void UpdateScene()
     {
         UpdateEnemies();
+        UpdateBombs();
     }
 
     private void UpdateEnemies()
@@ -32,6 +30,19 @@ public class SceneManager : MonoBehaviour
 
 
         }
+    }
+
+    public void AddBomb(Bomb bomb)
+    {
+        bombs.Add(bomb);
+    }
+
+    private void UpdateBombs()
+    {
+        bombs.RemoveAll(Bomb => Bomb == null);
+
+        foreach(Bomb bomb in bombs)            
+            bomb.Tick();
     }
 
 }

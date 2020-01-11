@@ -21,10 +21,7 @@ public class PlayerController : MonoBehaviour
 
     public ControlsManager controlsManager;
 
-    public InputQueueUI inputQueue;
-
-    public float timeBetweenSwitch;
-    public float speed;
+    public InputQueueUI inputQueueUI;
 
     public GameObject weakPlayerBulletPrefab;
     public GameObject strongPlayerBulletPrefab;
@@ -32,14 +29,26 @@ public class PlayerController : MonoBehaviour
     public float bombSpeed;
     public int bombDamage;
 
+
+    /*----Player Moving Data----*/
+    public float speed;
+    private bool playerMoving;
+    private Vector3 playerStartingPosition;
+    private Vector3 playerDestination;
+    /*--------------------------*/
     
     private KeyMap[] km = new KeyMap[4];
     private KeyCode lastPress = KeyCode.None;
 
-    private float xTranslate;
-    private float yTranslate;
+    /*----Player Scene Data---*/
     private SceneManager sm;
     private Inventory playerInv;
+    private PlayerStats ps;
+    /*------------------------*/
+
+    private bool acceptingInputs;
+    private KeyCode [] acceptedInputs = { KeyCode.H, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.B, KeyCode.D };
+    private Queue<KeyCode> inputQueue = new Queue<KeyCode>();
 
     // Start is called before the first frame update
     void Start()
@@ -64,32 +73,90 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("No SceneManager in scene.");
         sm = sceneObj.GetComponent<SceneManager>();
 
+        ps = GetComponent<PlayerStats>();
+
         playerInv = GetComponent<Inventory>();
+        acceptingInputs = true;
+        playerMoving = false;
     }
 
+    
     private void Update()
     {
+        //Accumulate Inputs
+        if (acceptingInputs)
+        {
+            foreach (KeyCode kc in acceptedInputs)
+                if (CheckKeyCode(kc))
+                {
+                    if (inputQueue.Count == 0)
+                        ps.StartTimer();
+
+                    inputQueue.Enqueue(kc);
+                }
+
+            if (Input.GetKeyDown(KeyCode.Return))
+                acceptingInputs = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if(!acceptingInputs)
+        {
+            //Parse Inputs, Move Player and Begin to Accept Inputs Once More
+            if (playerMoving)
+                MovePlayer();
+            else if (inputQueue.Count > 0)
+                UseInput(inputQueue.Dequeue());
+            else
+                acceptingInputs = true;
+        }
+    }
+
+    private void MovePlayer()
+    {
+        float fractionalSpeed = Mathf.Min(2.0f, speed / 10.0f);
+        Vector3 moveVector = (playerDestination - playerStartingPosition) * fractionalSpeed * Time.deltaTime;
+        transform.position += moveVector;
+        
+        if((playerDestination - playerStartingPosition).magnitude <= (transform.position - playerStartingPosition).magnitude)
+        {
+            transform.position = playerDestination;
+            playerMoving = false;
+        }
+
+    }
+
+    private void UseInput(KeyCode kc)
+    {
+        ps.AddStep();
+
         bool actionTaken = false;
 
-        if(!actionTaken)
-            actionTaken = PlaceBomb();
+        if (!actionTaken)
+            actionTaken = PlaceBomb(kc);
 
         if (!actionTaken)
-            actionTaken = Shoot();
-                
-        if(!actionTaken)
-            actionTaken = MoveInput();
+            actionTaken = Shoot(kc);
+
+        if (!actionTaken)
+            actionTaken = MoveInput(kc);
 
         if (actionTaken)
             sm.UpdateScene();
     }
 
-    void FixedUpdate()
+    private bool CheckKeyCode(KeyCode kc)
     {
-        transform.Translate(xTranslate, yTranslate, 0);
-        xTranslate = yTranslate = 0;
-    }
+        if (Input.GetKeyDown(kc))
+        {
+            inputQueueUI.AddInput(kc.ToString().ToCharArray()[0]);
+            return true;
+        }
 
+        return false;
+    }
 
     private void CreateBomb(Direction dir)
     {
@@ -113,18 +180,17 @@ public class PlayerController : MonoBehaviour
                 break;
         }
         Bomb bomb;
-        bomb = (Instantiate(bombPrefab, transform.position + offset, Quaternion.identity)).GetComponent<Bomb>();
-        bomb.SetDamage(bombDamage);
-        bomb.SetTime(bombSpeed);
+        bomb = Instantiate(bombPrefab, transform.position + offset, Quaternion.identity).GetComponent<Bomb>();
+        sm.AddBomb(bomb);
     }
 
-    private bool PlaceBomb()
+    private bool PlaceBomb(KeyCode kc)
     {
         if (lastPress == KeyCode.B)
         {
             for (int i = 0; i < 4; i++)
             {
-                if (Input.GetKeyDown(km[i].key))
+                if (kc == km[i].key)
                 {
                     switch (km[i].direction)
                     {
@@ -152,9 +218,9 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetKeyDown(KeyCode.B))
+        else if (kc == KeyCode.B)
         {
-            inputQueue.AddInput('b');
+            inputQueueUI.AddInput('b');
             lastPress = KeyCode.B;
             return true;
         }
@@ -225,11 +291,11 @@ public class PlayerController : MonoBehaviour
         bullet.SetDirection((Bullet.Direction)dir);
     }
     
-    private bool Shoot()
+    private bool Shoot(KeyCode kc)
     {
         if (lastPress == KeyCode.D)
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (kc == KeyCode.D)
             {
                 // Weak bullet in every direction
                 CreateBullet(Direction.UP, true);
@@ -244,7 +310,7 @@ public class PlayerController : MonoBehaviour
                 //Check if key down
                 for (int i = 0; i < 4; i++)
                 {
-                    if (Input.GetKeyDown(km[i].key))
+                    if (kc == km[i].key)
                     {
                         switch (km[i].direction)
                         {
@@ -266,12 +332,10 @@ public class PlayerController : MonoBehaviour
                                 return true;
                         }
                     }
-                }
-                
+                }                
             }
-
         }
-        else if(Input.GetKeyDown(KeyCode.D))
+        else if(kc == KeyCode.D)
         {
             lastPress = KeyCode.D;
             return true;
@@ -279,7 +343,7 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
-    private bool MoveInput()
+    private bool MoveInput(KeyCode kc)
     {
 
         float xTransform = 0f;
@@ -288,38 +352,65 @@ public class PlayerController : MonoBehaviour
         //Check if key down
         for (int i = 0; i < 4; i++)
         {
-            if (Input.GetKeyDown(km[i].key))
+            if (kc == km[i].key)
             {
                 switch (km[i].direction)
                 {
                     case "Left":
                         if(CanMove(Direction.LEFT))
-                            xTransform -= speed;
+                            xTransform -= 1.0f;
                         break;
                     case "Right":
                         if (CanMove(Direction.RIGHT))
-                            xTransform += speed;
+                            xTransform += 1.0f;
                         break;
                     case "Up":
                         if (CanMove(Direction.UP))
-                            yTransform += speed;
+                            yTransform += 1.0f;
                         break;
                     case "Down":
                         if (CanMove(Direction.DOWN))
-                            yTransform -= speed;
+                            yTransform -= 1.0f;
                         break;
                 }
             }
         }
-        xTranslate += xTransform;
-        yTranslate += yTransform;
+
+        playerStartingPosition = transform.position;
+        playerDestination = new Vector3(transform.position.x + xTransform, transform.position.y + yTransform, 0f);
+
+        playerMoving = true;
 
         return xTransform != 0 || yTransform != 0;
     }
     
+    public void ReceiveExplosion(Vector2 vec)
+    {
+        if (CanMove(vec))
+            transform.Translate(vec);
+    }
+
+
+    private bool CanMove(Vector2 vec)
+    {
+        if (vec == Vector2.up)
+            return CanMove(Direction.UP);
+
+        if (vec == Vector2.down)
+            return CanMove(Direction.DOWN);
+
+        if (vec == Vector2.left)
+            return CanMove(Direction.LEFT);
+
+        if (vec == Vector2.right)
+            return CanMove(Direction.RIGHT);
+
+        return false;
+    }
 
     private bool CanMove(Direction md)
     {
+
         Vector2 vec;
         switch (md)
         {
@@ -339,7 +430,7 @@ public class PlayerController : MonoBehaviour
                 vec = Vector2.up;
                 break;
         }
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, vec, 1.0f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, vec, /*1.0*/.6f);
 
         // return if hit collides w/ something
         if (hit.collider != null)
@@ -349,6 +440,8 @@ public class PlayerController : MonoBehaviour
             {
                 MovableBlock mb = hit.collider.gameObject.GetComponent<MovableBlock>();
                 mb.AcceptCollision(vec);
+
+                playerDestination = playerStartingPosition;
             }
             else if (hit.collider.gameObject.tag == "Item")
             {
@@ -356,8 +449,19 @@ public class PlayerController : MonoBehaviour
                 playerInv.GainItem(item.itemName, item.itemCount);
                 Destroy(hit.collider.gameObject);
                 return true;
-            }
+            }else if(hit.collider.gameObject.tag == "Enemy")
+            {
+                //DIE aka restart level
 
+
+                Destroy(gameObject);
+            }
+            else if (hit.collider.gameObject.tag == "Button" || hit.collider.gameObject.tag == "Exit")
+            {
+                return true;
+            }
+            //if player runs into wall, don't expect it to get through the wall
+            playerDestination = playerStartingPosition;
             return false;
         }
         else
@@ -367,12 +471,9 @@ public class PlayerController : MonoBehaviour
     public string GetKeyDirection(KeyCode keycode)
     {
         for(int i = 0; i < 4; i++)
-        {
-            if(km[i].key == keycode)
-            {
+            if(km[i].key == keycode)          
                 return km[i].direction;
-            }
-        }
+          
         return null;
     }
 

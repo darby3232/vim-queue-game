@@ -53,7 +53,9 @@ public class Bullet : MonoBehaviour
             {
                 //hit
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-                enemy.TakeDamage(damage);
+                
+                //NOTHING
+
                 //Destroy 
                 Destroy(gameObject);
             }else if(collision.gameObject.tag != "Player")
@@ -67,7 +69,6 @@ public class Bullet : MonoBehaviour
            {
                 //hit
                 Player player = collision.gameObject.GetComponent<Player>();
-                player.TakeDamage(damage);
                 //Destroy 
                 Destroy(gameObject);
            }else if (collision.gameObject.tag != "Enemy")

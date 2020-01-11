@@ -1,0 +1,21 @@
+ToDo:
+
+1/8/20:
+Create prototype levels
+X Create Doorways w/ buttons
+X Create Win Bocks
+X Create "Readable" Enemies - Direction + MoveCount?
+
+1/9/20:
+X Make yellow key doorway
+X Make bombs knock things back 1 square
+X Make bombs not time based
+
+1/10/20:
+Make "next level" system
+Make key not "bump-able"
+X Make level timer/move counter
+
+1/11/20:
+Make Key Door Script
+Make Enemy Direction Swap

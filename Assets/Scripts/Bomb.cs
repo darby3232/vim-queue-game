@@ -4,49 +4,27 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public float countdownTime;
     public int damage;
 
     private Animator anim;
     private float countdownFrameTime;
-    private int frameCount = 3;
+    private int currFrame = 3;
 
-    void Start()
+    void Awake()
     {
         anim = GetComponent<Animator>();
-        countdownFrameTime = countdownTime / frameCount;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Tick()
     {
-        if(countdownFrameTime < 0f)
-        {
+        Debug.Log("Tick");
+        if (currFrame-- > 0)
             anim.SetTrigger("NextState");
-            countdownFrameTime = countdownTime / frameCount;
-            frameCount--;
-            if(frameCount == 0)
-            {
-                //Explode Bomb
-                Explode();
-            }
-        }
-
-        countdownFrameTime -= Time.deltaTime;
+        else
+            Explode();
     }
 
-
-    public void SetDamage(int dmg)
-    {
-        damage = dmg;
-    }
-
-    public void SetTime(float time)
-    {
-        countdownTime = time;
-        countdownFrameTime = countdownTime / frameCount;
-    }
-
+    
     public void Explode()
     {
         BombCollide(Vector2.up);
@@ -72,13 +50,13 @@ public class Bomb : MonoBehaviour
             }
             else if(hit.collider.gameObject.tag == "Player")
             {
-                Player player = hit.collider.gameObject.GetComponent<Player>();
-                player.TakeDamage(damage);
-            }
+                PlayerController pc = hit.collider.gameObject.GetComponent<PlayerController>();
+                pc.ReceiveExplosion(vec);
+            }   
             else if (hit.collider.gameObject.tag == "Enemy")
             {
                 Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
-                enemy.TakeDamage(damage);
+                enemy.ReceiveExplosion(vec);
             }
         }
     }

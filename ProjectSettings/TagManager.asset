@@ -9,6 +9,8 @@ TagManager:
   - MovableBlock
   - BreakableBlock
   - Item
+  - Button
+  - Exit
   layers:
   - Default
   - TransparentFX
