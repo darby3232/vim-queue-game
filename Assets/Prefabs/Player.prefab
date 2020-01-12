@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7597868183926051603}
   - component: {fileID: 7597868183926051602}
   - component: {fileID: 7597868183926051607}
-  - component: {fileID: 7597868183926051612}
   - component: {fileID: 7597868183926051613}
   - component: {fileID: 7597868183926051614}
   m_Layer: 0
@@ -114,6 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f0d32bfc5293d4cb05be0ac760aa1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyIcon: {fileID: 0}
+  bombIcon: {fileID: 0}
 --- !u!114 &7597868183926051607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,27 +129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlsManager: {fileID: 0}
   inputQueueUI: {fileID: 0}
-  weakPlayerBulletPrefab: {fileID: 2763874149095715150, guid: 9e1af4224df30e9488bc84f47add688c,
-    type: 3}
-  strongPlayerBulletPrefab: {fileID: 9022579623979220040, guid: 86748dbdd801c524db037e8ac124a479,
-    type: 3}
   bombPrefab: {fileID: 8906750671516677928, guid: adc29ffe51b65354498f20267125de98,
     type: 3}
-  bombSpeed: 4
-  bombDamage: 4
-  speed: 15
---- !u!114 &7597868183926051612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7597868183926051606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5015cf6e7101c944a81e78ad9b164188, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  playerSpeed: 0
 --- !u!50 &7597868183926051613
 Rigidbody2D:
   serializedVersion: 4

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour
 {
 
-    private List<Bomb> bombs = new List<Bomb>();
+    private List<LitBomb> bombs = new List<LitBomb>();
 
     public void UpdateScene()
     {
@@ -32,7 +32,7 @@ public class SceneManager : MonoBehaviour
         }
     }
 
-    public void AddBomb(Bomb bomb)
+    public void AddBomb(LitBomb bomb)
     {
         bombs.Add(bomb);
     }
@@ -41,7 +41,7 @@ public class SceneManager : MonoBehaviour
     {
         bombs.RemoveAll(Bomb => Bomb == null);
 
-        foreach(Bomb bomb in bombs)            
+        foreach(LitBomb bomb in bombs)            
             bomb.Tick();
     }
 
