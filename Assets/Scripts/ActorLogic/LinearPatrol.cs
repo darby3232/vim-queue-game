@@ -12,8 +12,7 @@ public class LinearPatrol : MonoBehaviour
 
     public PatrolDirection patrolDirection;
 
-    //public float timeBetweenMoves;
-    
+   
     public bool positiveMoveDirection;
 
     public GameObject directionArrow;
@@ -41,17 +40,43 @@ public class LinearPatrol : MonoBehaviour
         }
     }
 
-    public void Move()
+    public void SwitchDirection()
     {
-      
+        if(patrolDirection == PatrolDirection.HORIZONTAL)        
+            patrolDirection = PatrolDirection.VERTICAL;        
+        else        
+            patrolDirection = PatrolDirection.HORIZONTAL;
+
+        UpdateArrowDirection();
+    }
+
+    public void Move()
+    {      
         if (patrolDirection == PatrolDirection.HORIZONTAL)
             MoveHorizontal();
         else
             MoveVertical();
 
-         
+        UpdateArrowDirection();
     }
 
+    private void UpdateArrowDirection()
+    {
+        if (patrolDirection == PatrolDirection.HORIZONTAL)
+        {
+            if (currPositiveMoveDirection)
+                directionArrow.transform.eulerAngles = new Vector3(0, 0, 270);
+            else
+                directionArrow.transform.eulerAngles = new Vector3(0, 0, 90);
+        }
+        else
+        {
+            if (currPositiveMoveDirection)
+                directionArrow.transform.eulerAngles = new Vector3(0, 0, 0);
+            else
+                directionArrow.transform.eulerAngles = new Vector3(0, 0, 180);
+        }
+    }
 
     private void MoveHorizontal()
     {
@@ -71,15 +96,9 @@ public class LinearPatrol : MonoBehaviour
       
 
         if (currPositiveMoveDirection)
-        {
             transform.Translate(new Vector3(1, 0, 0));
-            directionArrow.transform.eulerAngles = new Vector3(0, 0, 270); 
-        }
         else
-        {
             transform.Translate(new Vector3(-1, 0, 0));
-            directionArrow.transform.eulerAngles = new Vector3(0, 0, 90);
-        }
     }
 
     private void MoveVertical()
@@ -99,14 +118,8 @@ public class LinearPatrol : MonoBehaviour
         }       
 
         if (currPositiveMoveDirection)
-        {
             transform.Translate(new Vector3(0, 1, 0));
-            directionArrow.transform.eulerAngles = new Vector3(0, 0, 0);
-        }
         else
-        {
             transform.Translate(new Vector3(0, -1, 0));
-            directionArrow.transform.eulerAngles = new Vector3(0, 0, 270);
-        }
     }
 }

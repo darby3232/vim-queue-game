@@ -12,13 +12,19 @@ X Make bombs knock things back 1 square
 X Make bombs not time based
 
 1/10/20:
-Make "next level" system
+X Make "next level" system
 Make key not "bump-able"
 X Make level timer/move counter
 
 1/11/20:
 X Make Key Door Script
-Make Enemy Direction Swap Tile
+X Make Enemy Direction Swap Tile -> Finish updating arrow correctly
 
 1/12/20:
 X Clean up project/code
+
+1/13/20:
+Enemies move over time after player moves
+Fix positioning of player stats
+Clean up tags
+Get Graphics Layers set up

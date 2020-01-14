@@ -12,6 +12,7 @@ TagManager:
   - Button
   - Exit
   - LockedDoor
+  - SwitchTile
   layers:
   - Default
   - TransparentFX

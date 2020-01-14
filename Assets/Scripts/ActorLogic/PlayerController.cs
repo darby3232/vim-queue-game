@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     private KeyCode lastPress = KeyCode.None;
 
     /*----Player Scene Data---*/
-    private SceneManager sm;
+    private MySceneManager sm;
     private Player player;
     private PlayerStats ps;
     /*------------------------*/
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         GameObject sceneObj = GameObject.Find("SceneManager");
         if (sceneObj is null)
             Debug.LogError("No SceneManager in scene.");
-        sm = sceneObj.GetComponent<SceneManager>();
+        sm = sceneObj.GetComponent<MySceneManager>();
 
         ps = GetComponent<PlayerStats>();
 
@@ -366,7 +366,7 @@ public class PlayerController : MonoBehaviour
                 else
                     return false;
             }
-            else if (hit.collider.gameObject.tag == "Button" || hit.collider.gameObject.tag == "Exit" || hit.collider.gameObject.tag == "Item")
+            else if (hit.collider.gameObject.tag == "Button" || hit.collider.gameObject.tag == "Exit" || hit.collider.gameObject.tag == "Item" || hit.collider.gameObject.tag == "SwitchTile")
             {
                 return true;
             }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour
+public class MySceneManager : MonoBehaviour
 {
 
     private List<LitBomb> bombs = new List<LitBomb>();
@@ -26,9 +26,23 @@ public class SceneManager : MonoBehaviour
                 continue;
             }
 
-            //Add additional movement types here
+            //Add additional movement types here ???
 
 
+        }
+    }
+
+    public void SwitchEnemyDirection()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            LinearPatrol lp = enemy.GetComponent<LinearPatrol>();
+            if (lp != null)
+            {
+                lp.SwitchDirection();
+                continue;
+            }
         }
     }
 
