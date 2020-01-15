@@ -4,15 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-  - Walls
-  - MovableBlock
-  - BreakableBlock
   - Item
-  - Button
-  - Exit
-  - LockedDoor
-  - SwitchTile
+  - WalkableTile
+  - UnwalkableTile
+  - Actor
   layers:
   - Default
   - TransparentFX
@@ -24,8 +19,8 @@ TagManager:
   - 
   - Player
   - Enemy
-  - PlayerBullets
-  - EnemyBullets
+  - 
+  - 
   - 
   - 
   - 
@@ -53,11 +48,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: SpecialTiles
+    uniqueID: 2069601553
+    locked: 0
+  - name: Items
+    uniqueID: 3444610897
+    locked: 0
   - name: Player
     uniqueID: 701025699
     locked: 0
   - name: Enemy
     uniqueID: 1292834983
+    locked: 0
+  - name: Impassable
+    uniqueID: 3059673465
     locked: 0
   - name: UI
     uniqueID: 381254403

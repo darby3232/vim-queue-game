@@ -9,17 +9,17 @@ public class MySceneManager : MonoBehaviour
 
     public void UpdateScene()
     {
-        UpdateEnemies();
+        UpdateActors();
         UpdateBombs();
     }
 
-    private void UpdateEnemies()
+    private void UpdateActors()
     {
         //get all those w/ an enemy tag and tell them to move 
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach(GameObject enemy in enemies)
+        GameObject[] actors = GameObject.FindGameObjectsWithTag("Actor");
+        foreach(GameObject actor in actors)
         {
-            LinearPatrol lp = enemy.GetComponent<LinearPatrol>();
+            LinearPatrol lp = actor.GetComponent<LinearPatrol>();
             if(lp != null)
             {
                 lp.Move();
@@ -32,12 +32,12 @@ public class MySceneManager : MonoBehaviour
         }
     }
 
-    public void SwitchEnemyDirection()
+    public void SwitchActorDirection()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
+        GameObject[] actors = GameObject.FindGameObjectsWithTag("Actor");
+        foreach (GameObject actor in actors)
         {
-            LinearPatrol lp = enemy.GetComponent<LinearPatrol>();
+            LinearPatrol lp = actor.GetComponent<LinearPatrol>();
             if (lp != null)
             {
                 lp.SwitchDirection();

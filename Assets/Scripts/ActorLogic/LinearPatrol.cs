@@ -89,7 +89,7 @@ public class LinearPatrol : MonoBehaviour
 
         RaycastHit2D ray = Physics2D.Raycast(transform.position, rayDir, 1.0f);
 
-        if (ray.collider != null && ray.collider.tag != "Button")
+        if (ray.collider != null && ray.collider.tag != "WalkableTile")
         {
             currPositiveMoveDirection = !currPositiveMoveDirection;
         }
@@ -112,7 +112,7 @@ public class LinearPatrol : MonoBehaviour
 
         RaycastHit2D ray = Physics2D.Raycast(transform.position, rayDir, 1.0f);
 
-        if (ray.collider != null && ray.collider.tag != "Button")
+        if (ray.collider != null && ray.collider.tag != "WalkableTile")
         {
             currPositiveMoveDirection = !currPositiveMoveDirection;
         }       

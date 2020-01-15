@@ -344,38 +344,32 @@ public class PlayerController : MonoBehaviour
         // return if hit collides w/ something
         if (hit.collider != null)
         {
-            // check if the thing being hit is a movable block
-            if (hit.collider.gameObject.tag == "MovableBlock")
-            {
-                MovableBlock mb = hit.collider.gameObject.GetComponent<MovableBlock>();
-                mb.AcceptCollision(vec);
-
-                playerDestination = playerStartingPosition;
-            }
-            else if(hit.collider.gameObject.tag == "Enemy")
-            {
-                Destroy(gameObject);
-            }
-            else if (hit.collider.gameObject.tag == "LockedDoor")
-            {
-                if (player.TryUseKey())
-                {
-                    Destroy(hit.transform.gameObject);
-                    return true;
-                }
-                else
-                    return false;
-            }
-            else if (hit.collider.gameObject.tag == "Button" || hit.collider.gameObject.tag == "Exit" || hit.collider.gameObject.tag == "Item" || hit.collider.gameObject.tag == "SwitchTile")
+            if(hit.collider.tag == "WalkableTile" || hit.collider.tag == "Item")
             {
                 return true;
             }
-            //if player runs into wall, don't expect it to get through the wall
-            playerDestination = playerStartingPosition;
-            return false;
+
+            if(hit.collider.tag == "Actor")
+            {
+                
+
+
+            }
+
+            if(hit.collider.tag == "UnwalkableTile")
+            {
+                //Moving Wall Tile
+                MovableBlock mb = hit.transform.gameObject.GetComponent<MovableBlock>();
+                if (mb != null)
+                    return mb.AcceptCollision(vec);
+
+
+                //Wall
+                return false;
+            }            
         }
-        else
-            return true;
+
+        return true;
     }
 
     public string GetKeyDirection(KeyCode keycode)

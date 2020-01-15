@@ -29,7 +29,6 @@ public class LitBomb : MonoBehaviour
     {
         BombCollide(Vector2.up);
         BombCollide(Vector2.down);
-
         BombCollide(Vector2.right);
         BombCollide(Vector2.left);
 
@@ -42,22 +41,24 @@ public class LitBomb : MonoBehaviour
 
         if(hit.collider != null)
         {
-            // check if the thing being hit is a movable block
-            if (hit.collider.gameObject.tag == "BreakableBlock")
-            {
-                //Break Block
-                Destroy(hit.collider.gameObject);
-            }
-            else if(hit.collider.gameObject.tag == "Player")
+            if(hit.collider.gameObject.tag == "Player")
             {
                 PlayerController pc = hit.collider.gameObject.GetComponent<PlayerController>();
                 pc.ReceiveExplosion(vec);
             }   
-            else if (hit.collider.gameObject.tag == "Enemy")
+            else if (hit.collider.gameObject.tag == "Actor")
             {
                 Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
-                enemy.ReceiveExplosion(vec);
+                if(enemy != null)
+                    enemy.ReceiveExplosion(vec);
             }
+            else if (hit.collider.gameObject.tag == "Item")
+            {
+                MovableBlock mb = hit.collider.gameObject.GetComponent<MovableBlock>();
+                if (mb != null)
+                    mb.AcceptCollision(vec);
+            }
+
         }
     }
 }

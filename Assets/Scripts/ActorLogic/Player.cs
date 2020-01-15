@@ -8,7 +8,21 @@ public class Player : MonoBehaviour
     public GameObject bombIcon;
 
     private bool hasKey;
-    private bool hasBomb;    
+    private bool hasBomb;
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Actor")
+        {
+            Enemy e = collision.gameObject.GetComponent<Enemy>();
+            if(e != null)
+            {
+                //Kill Player
+                Debug.Log("Kill Player");
+            }
+
+        }
+    }
 
     public void GetKey()
     {

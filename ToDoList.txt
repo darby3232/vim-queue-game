@@ -24,7 +24,11 @@ X Make Enemy Direction Swap Tile -> Finish updating arrow correctly
 X Clean up project/code
 
 1/13/20:
-Enemies move over time after player moves
+Enemies move over time after player moves ?
 Fix positioning of player stats
-Clean up tags
-Get Graphics Layers set up
+X Clean up tags
+X Get Graphics Layers set up
+
+1/14/20:
+X Make Twitter
+Make Reddit
