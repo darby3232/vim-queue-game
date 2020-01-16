@@ -38,9 +38,8 @@ public class Player : MonoBehaviour
             keyIcon.SetActive(false);
             return true;
         }
-        else
-            return false;
 
+        return false;
     }
     
     public void GetBomb()

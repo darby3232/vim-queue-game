@@ -363,6 +363,9 @@ public class PlayerController : MonoBehaviour
                 if (mb != null)
                     return mb.AcceptCollision(vec);
 
+                KeyDoor kd = hit.transform.gameObject.GetComponent<KeyDoor>();
+                if (kd != null)
+                    return kd.TryToUnlock(player);
 
                 //Wall
                 return false;

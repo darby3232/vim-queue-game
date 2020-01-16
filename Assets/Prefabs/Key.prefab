@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1343411066270055123}
   - component: {fileID: 1343411066270055122}
   - component: {fileID: 1343411066270055125}
+  - component: {fileID: -2587192601557746126}
   m_Layer: 0
   m_Name: Key
   m_TagString: Item
@@ -95,7 +96,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 765bd3546b7c5c640b40e68bffd62468, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -127,3 +128,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4978819, y: 0.6515913}
   m_EdgeRadius: 0
+--- !u!114 &-2587192601557746126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343411066270055124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573f33ce4d84a3142bb1f496370001e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

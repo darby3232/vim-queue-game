@@ -89,7 +89,7 @@ public class LinearPatrol : MonoBehaviour
 
         RaycastHit2D ray = Physics2D.Raycast(transform.position, rayDir, 1.0f);
 
-        if (ray.collider != null && ray.collider.tag != "WalkableTile")
+        if (ray.collider != null && ray.collider.tag == "UnwalkableTile")
         {
             currPositiveMoveDirection = !currPositiveMoveDirection;
         }

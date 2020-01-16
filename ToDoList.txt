@@ -13,7 +13,7 @@ X Make bombs not time based
 
 1/10/20:
 X Make "next level" system
-Make key not "bump-able"
+X Make key not "bump-able"
 X Make level timer/move counter
 
 1/11/20:
@@ -30,5 +30,13 @@ X Clean up tags
 X Get Graphics Layers set up
 
 1/14/20:
-X Make Twitter
-Make Reddit
+X Make twitter account
+Make reddit account
+
+1/15/20:
+X Make Title Screen
+X Make Level Screen
+Make save system
+Make level for each mechanic
+Review mechanics
+Fixing Controls Container
