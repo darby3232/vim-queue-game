@@ -40,3 +40,7 @@ Make save system
 Make level for each mechanic
 Review mechanics
 Fixing Controls Container
+
+1/16/20:
+Make switch controls block
+Create EndLevel Procedure
