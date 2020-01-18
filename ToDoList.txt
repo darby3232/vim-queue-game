@@ -36,11 +36,17 @@ Make reddit account
 1/15/20:
 X Make Title Screen
 X Make Level Screen
-Make save system
+X Make save system
 Make level for each mechanic
 Review mechanics
 Fixing Controls Container
 
 1/16/20:
-Make switch controls block
-Create EndLevel Procedure
+Make scramble controls block
+Create EndLevel Procedure -> check saving works
+
+1/17/20:
+X Finish updating UI / EndLevel Stuff
+
+1/18/20:
+Have Unity recognize all scenes

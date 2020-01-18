@@ -9,9 +9,31 @@ public class Game : MonoBehaviour
 
     List<int> completedLevels = new List<int>();
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void Start()
+    {
+        LoadCompletedLevels();
+    }
+
     public void LoadCompletedLevels()
     {
+        if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
+        {
+            FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
+            BinaryFormatter bf = new BinaryFormatter();
+            SaveGame save = (SaveGame)bf.Deserialize(file);
+            file.Close();
 
+            Debug.Log("Save Loaded");
+        }
+        else
+        {
+            Debug.Log("No Save To Load");
+        }
     }
 
     private SaveGame CreateSaveGameObject()
@@ -32,11 +54,15 @@ public class Game : MonoBehaviour
         FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
         bf.Serialize(file, save);
         file.Close();
+
+        Debug.Log("Saved game at " + Application.persistentDataPath + "/gamesave.save");
     }
 
     public void AddCompletedLevel(int levelNumber)
     {
-        completedLevels.Add(levelNumber);
+        //check if level hasn't been completed already
+        if(!completedLevels.Contains(levelNumber))
+            completedLevels.Add(levelNumber);
     }
 
 }
