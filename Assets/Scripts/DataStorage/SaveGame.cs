@@ -6,6 +6,6 @@ using UnityEngine;
 public class SaveGame
 {
 
-    public List<int> levelCompleted = new List<int>();
+    public List<string> levelCompleted = new List<string>();
 
 }

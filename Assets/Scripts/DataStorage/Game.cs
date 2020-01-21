@@ -7,13 +7,8 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
 
-    List<int> completedLevels = new List<int>();
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-
+    public List<string> completedLevels = new List<string>();
+    
     private void Start()
     {
         LoadCompletedLevels();
@@ -26,6 +21,10 @@ public class Game : MonoBehaviour
             FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
             BinaryFormatter bf = new BinaryFormatter();
             SaveGame save = (SaveGame)bf.Deserialize(file);
+
+            foreach (string fileName in save.levelCompleted)
+                completedLevels.Add(fileName);
+
             file.Close();
 
             Debug.Log("Save Loaded");
@@ -40,8 +39,8 @@ public class Game : MonoBehaviour
     {
         SaveGame save = new SaveGame();
 
-        foreach (int levelNum in completedLevels)
-            save.levelCompleted.Add(levelNum);
+        foreach (string levelName in completedLevels)
+            save.levelCompleted.Add(levelName);
         
         return save;
     }
@@ -58,11 +57,11 @@ public class Game : MonoBehaviour
         Debug.Log("Saved game at " + Application.persistentDataPath + "/gamesave.save");
     }
 
-    public void AddCompletedLevel(int levelNumber)
+    public void AddCompletedLevel(string levelName)
     {
         //check if level hasn't been completed already
-        if(!completedLevels.Contains(levelNumber))
-            completedLevels.Add(levelNumber);
+        if(!completedLevels.Contains(levelName))
+            completedLevels.Add(levelName);
     }
 
 }

@@ -24,6 +24,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        keyIcon.SetActive(false);
+        bombIcon.SetActive(false);
+    }
+
     public void GetKey()
     {
         hasKey = true;

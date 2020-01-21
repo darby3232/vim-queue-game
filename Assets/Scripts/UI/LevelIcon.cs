@@ -1,15 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
-public class LevelsMenu : MonoBehaviour
+public class LevelIcon : MonoBehaviour
 {
 
     public LevelManager levelManager;
+    public Game game;
+    public int levelNum;
 
-    private string GetNextLevelNameByNum(int levelNum)
+    public Color levelCompleted;
+    public Color levelIncomplete;
+
+    private string levelName;
+
+    public void Start()
+    {
+        Image image = GetComponent<Image>();
+        levelName = GetLevelNameByNum();
+
+        if (game.completedLevels.Contains(levelName))
+            image.color = levelCompleted;
+        else
+            image.color = levelIncomplete;
+    }
+
+    private string GetLevelNameByNum()
     {
         foreach (LevelData ld in levelManager.levels)
         {
@@ -21,8 +40,6 @@ public class LevelsMenu : MonoBehaviour
 
     public void LoadLevel(int levelNum)
     {
-        string levelName = GetNextLevelNameByNum(levelNum);
-
         if (levelName == "None")
             Debug.Log("LevelNotAvailable");
         else

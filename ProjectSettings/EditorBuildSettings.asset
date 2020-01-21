@@ -9,12 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/TestingScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/TitleScene.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 86179c926ddc01943ab453ad7a6d4f5e
   - enabled: 1
-    path: Assets/Scenes/2-KeyScene.unity
+    path: Assets/Scenes/KeyScene.unity
     guid: a356e525284552143be55f87fdb03ea2
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/SimpleScene.unity
+    guid: 6465218c1638bf4408d25df6f2a1925a
+  - enabled: 1
+    path: Assets/Scenes/RightTurn.unity
+    guid: b4b9b828dfadca54c805efac370e36cf
   m_configObjects: {}

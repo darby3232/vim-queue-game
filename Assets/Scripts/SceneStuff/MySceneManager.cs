@@ -8,8 +8,8 @@ public class MySceneManager : MonoBehaviour
 
     [SerializeField]
     private int levelNumber;
-    [SerializeField]
-    private string nextLevelName;
+
+    public LevelManager levelManager;
 
     public GameObject gameUI;
     public GameObject endingUI;
@@ -22,8 +22,7 @@ public class MySceneManager : MonoBehaviour
     {
         game = GameObject.Find("Game").GetComponent<Game>();
     }
-
-
+    
     public void UpdateScene()
     {
         UpdateActors();
@@ -84,19 +83,19 @@ public class MySceneManager : MonoBehaviour
         endingUI.SetActive(true);
 
         //save level completed
-        game.AddCompletedLevel(levelNumber);
+        game.AddCompletedLevel(SceneManager.GetActiveScene().name);
         game.SaveGame();
     }
 
 
     public void NextLevel()
     {
-        StartCoroutine(LoadSceneByName(nextLevelName));
+        StartCoroutine(LoadSceneByName(GetNextLevelName()));
     }
     
     public void ReturnToMenu()
     {
-        StartCoroutine(LoadSceneByName("TitleScreen"));
+        StartCoroutine(LoadSceneByName(levelManager.mainMenuName));
     }
 
     IEnumerator LoadSceneByName(string sceneName)
@@ -105,6 +104,16 @@ public class MySceneManager : MonoBehaviour
 
         while (!asyncLoad.isDone)
             yield return null;
+    }
+
+    private string GetNextLevelName()
+    {
+        foreach(LevelData ld in levelManager.levels)
+        {
+            if (ld.levelNumber == levelNumber + 1)
+                return ld.levelName;
+        }
+        return levelManager.mainMenuName;
     }
 
 }
