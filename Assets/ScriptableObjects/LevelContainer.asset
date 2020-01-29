@@ -15,11 +15,21 @@ MonoBehaviour:
   mainMenuName: MainMenu
   levels:
   - levelNumber: 1
-    levelName: SimpleScene
+    levelName: BasicMove
   - levelNumber: 2
-    levelName: RightTurn
+    levelName: BasicTurn
   - levelNumber: 3
     levelName: KeyScene
+  - levelNumber: 4
+    levelName: BasicMovingBlock
+  - levelNumber: 5
+    levelName: BasicBomb
+  - levelNumber: 6
+    levelName: 
+  - levelNumber: 0
+    levelName: 
+  - levelNumber: 0
+    levelName: 
   - levelNumber: 0
     levelName: 
   - levelNumber: 0

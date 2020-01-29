@@ -12,15 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 86179c926ddc01943ab453ad7a6d4f5e
   - enabled: 1
-    path: Assets/Scenes/KeyScene.unity
+    path: Assets/Scenes/Levels/BasicKey.unity
     guid: a356e525284552143be55f87fdb03ea2
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SimpleScene.unity
+    path: Assets/Scenes/Levels/BasicMove.unity
     guid: 6465218c1638bf4408d25df6f2a1925a
   - enabled: 1
-    path: Assets/Scenes/RightTurn.unity
+    path: Assets/Scenes/Levels/BasicTurn.unity
     guid: b4b9b828dfadca54c805efac370e36cf
   m_configObjects: {}

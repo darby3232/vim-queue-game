@@ -11,11 +11,13 @@ public class LevelIcon : MonoBehaviour
     public LevelManager levelManager;
     public Game game;
     public int levelNum;
+    public Animator anim;
 
     public Color levelCompleted;
     public Color levelIncomplete;
 
     private string levelName;
+    private Button levelButton;
 
     public void Start()
     {
@@ -26,6 +28,10 @@ public class LevelIcon : MonoBehaviour
             image.color = levelCompleted;
         else
             image.color = levelIncomplete;
+
+        //Add listener to click on button
+        levelButton = GetComponent<Button>();
+        levelButton.onClick.AddListener(() => LoadLevel());
     }
 
     private string GetLevelNameByNum()
@@ -38,7 +44,7 @@ public class LevelIcon : MonoBehaviour
         return "None";
     }
 
-    public void LoadLevel(int levelNum)
+    public void LoadLevel()
     {
         if (levelName == "None")
             Debug.Log("LevelNotAvailable");
@@ -46,9 +52,12 @@ public class LevelIcon : MonoBehaviour
             StartCoroutine(LoadParticularScene(levelName));
     }
 
-
     IEnumerator LoadParticularScene(string sceneName)
     {
+        anim.SetTrigger("LoadLevel");
+        //Play animation first, then load
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 
         while (!asyncLoad.isDone)

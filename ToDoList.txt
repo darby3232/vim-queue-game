@@ -49,3 +49,11 @@ X Finish updating UI / EndLevel Stuff
 
 1/18/20:
 X Have Unity recognize all scenes
+
+1/21/20:
+:( Create distortion shaders for tiles? Not possible w/ current knowledge
+
+1/22/2020/:
+Instant Transition Between Levels
+Return To Menu Interface
+Smooth transition between failing level to restarting

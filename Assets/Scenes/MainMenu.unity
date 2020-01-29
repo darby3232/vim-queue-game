@@ -451,18 +451,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 92458451}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 67296890}
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, Unity.ugui, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &92458451
@@ -518,6 +507,7 @@ MonoBehaviour:
   levelManager: {fileID: 11400000, guid: 2cc83488a4cb19d47b9e92f529c3bf57, type: 2}
   game: {fileID: 364604303}
   levelNum: 8
+  anim: {fileID: 2031631045}
   levelCompleted: {r: 0.086908154, g: 0.8773585, b: 0.23511758, a: 1}
   levelIncomplete: {r: 0.7830189, g: 0.23268957, b: 0.23268957, a: 1}
 --- !u!1 &156407522
@@ -978,18 +968,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 222413539}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 67296890}
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, Unity.ugui, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &222413539
@@ -1045,6 +1024,7 @@ MonoBehaviour:
   levelManager: {fileID: 11400000, guid: 2cc83488a4cb19d47b9e92f529c3bf57, type: 2}
   game: {fileID: 364604303}
   levelNum: 3
+  anim: {fileID: 2031631045}
   levelCompleted: {r: 0.086908154, g: 0.8773585, b: 0.23511758, a: 1}
   levelIncomplete: {r: 0.7830189, g: 0.23268957, b: 0.23268957, a: 1}
 --- !u!1 &246787347
@@ -1143,7 +1123,7 @@ RectTransform:
   - {fileID: 1222757752}
   - {fileID: 67296889}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1337,7 +1317,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &364604303
 MonoBehaviour:
@@ -1691,18 +1671,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 476493048}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 67296890}
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: KeyScene
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, Unity.ugui, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &476493048
@@ -1758,6 +1727,7 @@ MonoBehaviour:
   levelManager: {fileID: 11400000, guid: 2cc83488a4cb19d47b9e92f529c3bf57, type: 2}
   game: {fileID: 364604303}
   levelNum: 1
+  anim: {fileID: 2031631045}
   levelCompleted: {r: 0.086908154, g: 0.8773585, b: 0.23511758, a: 1}
   levelIncomplete: {r: 0.7830189, g: 0.23268957, b: 0.23268957, a: 1}
 --- !u!1 &535365354
@@ -1917,18 +1887,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 695580581}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 67296890}
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, Unity.ugui, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &695580581
@@ -1984,6 +1943,7 @@ MonoBehaviour:
   levelManager: {fileID: 11400000, guid: 2cc83488a4cb19d47b9e92f529c3bf57, type: 2}
   game: {fileID: 364604303}
   levelNum: 7
+  anim: {fileID: 2031631045}
   levelCompleted: {r: 0.086908154, g: 0.8773585, b: 0.23511758, a: 1}
   levelIncomplete: {r: 0.7830189, g: 0.23268957, b: 0.23268957, a: 1}
 --- !u!1 &699388658
@@ -2965,7 +2925,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1089553676
 GameObject:
@@ -3401,18 +3361,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1228206822}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 67296890}
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, Unity.ugui, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1228206822
@@ -3468,6 +3417,7 @@ MonoBehaviour:
   levelManager: {fileID: 11400000, guid: 2cc83488a4cb19d47b9e92f529c3bf57, type: 2}
   game: {fileID: 364604303}
   levelNum: 5
+  anim: {fileID: 2031631045}
   levelCompleted: {r: 0.086908154, g: 0.8773585, b: 0.23511758, a: 1}
   levelIncomplete: {r: 0.7830189, g: 0.23268957, b: 0.23268957, a: 1}
 --- !u!1 &1228458887
@@ -3628,18 +3578,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1270917410}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 67296890}
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 9
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, Unity.ugui, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1270917410
@@ -3695,6 +3634,7 @@ MonoBehaviour:
   levelManager: {fileID: 11400000, guid: 2cc83488a4cb19d47b9e92f529c3bf57, type: 2}
   game: {fileID: 364604303}
   levelNum: 9
+  anim: {fileID: 2031631045}
   levelCompleted: {r: 0.086908154, g: 0.8773585, b: 0.23511758, a: 1}
   levelIncomplete: {r: 0.7830189, g: 0.23268957, b: 0.23268957, a: 1}
 --- !u!1 &1270922620
@@ -4823,18 +4763,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1537762139}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 67296890}
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, Unity.ugui, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1537762139
@@ -4890,6 +4819,7 @@ MonoBehaviour:
   levelManager: {fileID: 11400000, guid: 2cc83488a4cb19d47b9e92f529c3bf57, type: 2}
   game: {fileID: 364604303}
   levelNum: 10
+  anim: {fileID: 2031631045}
   levelCompleted: {r: 0.086908154, g: 0.8773585, b: 0.23511758, a: 1}
   levelIncomplete: {r: 0.7830189, g: 0.23268957, b: 0.23268957, a: 1}
 --- !u!1 &1560688414
@@ -5445,18 +5375,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1840459786}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 67296890}
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, Unity.ugui, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1840459786
@@ -5512,6 +5431,7 @@ MonoBehaviour:
   levelManager: {fileID: 11400000, guid: 2cc83488a4cb19d47b9e92f529c3bf57, type: 2}
   game: {fileID: 364604303}
   levelNum: 2
+  anim: {fileID: 2031631045}
   levelCompleted: {r: 0.086908154, g: 0.8773585, b: 0.23511758, a: 1}
   levelIncomplete: {r: 0.7830189, g: 0.23268957, b: 0.23268957, a: 1}
 --- !u!1 &1878743815
@@ -5596,18 +5516,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1878743818}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 67296890}
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, Unity.ugui, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1878743818
@@ -5663,6 +5572,7 @@ MonoBehaviour:
   levelManager: {fileID: 11400000, guid: 2cc83488a4cb19d47b9e92f529c3bf57, type: 2}
   game: {fileID: 364604303}
   levelNum: 6
+  anim: {fileID: 2031631045}
   levelCompleted: {r: 0.086908154, g: 0.8773585, b: 0.23511758, a: 1}
   levelIncomplete: {r: 0.7830189, g: 0.23268957, b: 0.23268957, a: 1}
 --- !u!1 &1925090243
@@ -5729,7 +5639,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1973537784
 GameObject:
@@ -5888,6 +5798,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973537784}
   m_CullTransparentMesh: 0
+--- !u!95 &2031631045 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8178959169162933755, guid: d97c7ede7a8050e4f8743b413ebda55b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8178959169047056190}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2089784135
 GameObject:
   m_ObjectHideFlags: 0
@@ -5970,18 +5886,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2089784138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 67296890}
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, Unity.ugui, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2089784138
@@ -6037,6 +5942,7 @@ MonoBehaviour:
   levelManager: {fileID: 11400000, guid: 2cc83488a4cb19d47b9e92f529c3bf57, type: 2}
   game: {fileID: 364604303}
   levelNum: 4
+  anim: {fileID: 2031631045}
   levelCompleted: {r: 0.086908154, g: 0.8773585, b: 0.23511758, a: 1}
   levelIncomplete: {r: 0.7830189, g: 0.23268957, b: 0.23268957, a: 1}
 --- !u!1 &2113395280
@@ -6172,3 +6078,77 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113395280}
   m_CullTransparentMesh: 0
+--- !u!1001 &8178959169047056190
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8178959169278254213, guid: d97c7ede7a8050e4f8743b413ebda55b,
+        type: 3}
+      propertyPath: m_Name
+      value: ScreenTransitionGroup
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178959169278254210, guid: d97c7ede7a8050e4f8743b413ebda55b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.32699293
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178959169278254210, guid: d97c7ede7a8050e4f8743b413ebda55b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19215709
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178959169278254210, guid: d97c7ede7a8050e4f8743b413ebda55b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 60.790035
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178959169278254210, guid: d97c7ede7a8050e4f8743b413ebda55b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178959169278254210, guid: d97c7ede7a8050e4f8743b413ebda55b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178959169278254210, guid: d97c7ede7a8050e4f8743b413ebda55b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178959169278254210, guid: d97c7ede7a8050e4f8743b413ebda55b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178959169278254210, guid: d97c7ede7a8050e4f8743b413ebda55b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178959169278254210, guid: d97c7ede7a8050e4f8743b413ebda55b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178959169278254210, guid: d97c7ede7a8050e4f8743b413ebda55b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178959169278254210, guid: d97c7ede7a8050e4f8743b413ebda55b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178959168392014731, guid: d97c7ede7a8050e4f8743b413ebda55b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d97c7ede7a8050e4f8743b413ebda55b, type: 3}
